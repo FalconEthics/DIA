@@ -1,4 +1,5 @@
 package org.example;
+// imports
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,10 +15,8 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.io.FileNotFoundException;
 
-
-
-
 public class Main {
+    // Main method
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the directory path:");
@@ -57,23 +56,27 @@ public class Main {
 
         // Execute the chosen task
         if (option == 1) {
+            // Prompt the user to enter the compression percentage
             System.out.println("Please enter the compression percentage (0-100):");
             int compressionPercentage = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Compressing images...");
             for (int i = 0; i < imageFiles.size(); i++) {
                 File imageFile = imageFiles.get(i);
+                // Compress the image
                 compressImage(imageFile, compressionPercentage);
                 System.out.println("Progress: " + (i + 1) * 100 / imageFiles.size() + "%");
             }
             System.out.println("Compression complete!");
         } else if (option == 2) {
+            // Delete duplicate images
             System.out.println("Deleting duplicates...");
             Set<String> hashSet = new HashSet<>();
             for (int i = 0; i < imageFiles.size(); i++) {
                 File imageFile = imageFiles.get(i);
                 String fileHash = null;
                 try {
+                    // Get the hash of the image
                     fileHash = getImageHash(imageFile);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -81,8 +84,10 @@ public class Main {
                     throw new RuntimeException(e);
                 }
                 if (hashSet.contains(fileHash)) {
+                    // Delete the duplicate image
                     imageFile.delete();
                 } else {
+                    // Add the hash to the hash set
                     hashSet.add(fileHash);
                 }
                 System.out.println("Progress: " + (i + 1) * 100 / imageFiles.size() + "%");
@@ -94,6 +99,7 @@ public class Main {
     }
 
     private static boolean isImageFile(File file) {
+        // Check if the file is an image file
         String fileName = file.getName();
         String extension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
         return extension.equals("jpg") || extension.equals("jpeg") || extension.equals("png");
@@ -101,8 +107,10 @@ public class Main {
 
     private static void compressImage(File imageFile, int compressionPercentage) {
         try {
+            // Read the image file
             BufferedImage originalImage = ImageIO.read(imageFile);
             if (originalImage == null) {
+                // If the image file is invalid, skip it
                 System.err.println("Failed to read image file: " + imageFile.getAbsolutePath());
                 return;
             }
@@ -111,6 +119,7 @@ public class Main {
             double compressionRatio = (double) compressionPercentage / 100;
             int newWidth = (int) (originalWidth * compressionRatio);
             int newHeight = (int) (originalHeight * compressionRatio);
+            // Create a new image with the new dimensions
             BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, originalImage.getType());
             Graphics2D graphics2D = resizedImage.createGraphics();
             graphics2D.drawImage(originalImage, 0, 0, newWidth, newHeight, null);
@@ -126,11 +135,13 @@ public class Main {
 
     private static String getImageHash(File imageFile) throws IOException, NoSuchAlgorithmException {
         try {
+            // Get the hash of the image file
             FileInputStream fileInputStream = new FileInputStream(imageFile);
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             byte[] buffer = new byte[1024];
             int bytesRead;
             while ((bytesRead = fileInputStream.read(buffer)) != -1) {
+               // Update the message digest
                 messageDigest.update(buffer, 0, bytesRead);
             }
             byte[] digest = messageDigest.digest();
@@ -138,12 +149,15 @@ public class Main {
             for (byte b : digest) {
                 stringBuilder.append(String.format("%02x", b));
             }
+            // Close the file input stream
             fileInputStream.close();
             return stringBuilder.toString();
         } catch (FileNotFoundException e) {
+            // If the image file is not found, throw an exception
             System.err.println("File not found: " + imageFile.getAbsolutePath());
             throw new IOException("Failed to read image file", e);
         }
     }
-
 }
+
+// copyright 2022 ~ Soumik Das
