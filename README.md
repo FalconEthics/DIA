@@ -1,2 +1,2 @@
 # DIA
-Duplicate Image Analyzer 
+Digital Image Analyzer 
