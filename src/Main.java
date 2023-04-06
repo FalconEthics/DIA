@@ -1,4 +1,3 @@
-package org.example;
 // imports
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,6 +13,8 @@ import java.security.MessageDigest;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.io.FileNotFoundException;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class Main {
     // Main method
@@ -61,17 +62,21 @@ public class Main {
             int compressionPercentage = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Compressing images...");
+            AtomicInteger filesProcessed = new AtomicInteger(0);
+            AtomicInteger filesRemaining = new AtomicInteger(imageFiles.size());
             for (int i = 0; i < imageFiles.size(); i++) {
                 File imageFile = imageFiles.get(i);
                 // Compress the image
-                compressImage(imageFile, compressionPercentage);
+                compressImage(imageFile, compressionPercentage, filesProcessed, filesRemaining);
                 System.out.println("Progress: " + (i + 1) * 100 / imageFiles.size() + "%");
             }
             System.out.println("Compression complete!");
-        } else if (option == 2) {
+        }
+        if (option == 2) {
             // Delete duplicate images
             System.out.println("Deleting duplicates...");
             Set<String> hashSet = new HashSet<>();
+            int deletedFilesCount = 0;
             for (int i = 0; i < imageFiles.size(); i++) {
                 File imageFile = imageFiles.get(i);
                 String fileHash = null;
@@ -86,13 +91,15 @@ public class Main {
                 if (hashSet.contains(fileHash)) {
                     // Delete the duplicate image
                     imageFile.delete();
+                    deletedFilesCount++;
+                    System.out.println("Deleted file " + deletedFilesCount + ": " + imageFile.getAbsolutePath());
                 } else {
                     // Add the hash to the hash set
                     hashSet.add(fileHash);
                 }
                 System.out.println("Progress: " + (i + 1) * 100 / imageFiles.size() + "%");
             }
-            System.out.println("Deletion complete!");
+            System.out.println("Deletion complete! Deleted " + deletedFilesCount + " files.");
         } else {
             System.out.println("Invalid option selected.");
         }
@@ -105,7 +112,7 @@ public class Main {
         return extension.equals("jpg") || extension.equals("jpeg") || extension.equals("png");
     }
 
-    private static void compressImage(File imageFile, int compressionPercentage) {
+    private static void compressImage(File imageFile, int compressionPercentage, AtomicInteger filesCompressed, AtomicInteger filesRemaining) {
         try {
             // Read the image file
             BufferedImage originalImage = ImageIO.read(imageFile);
@@ -125,12 +132,14 @@ public class Main {
             graphics2D.drawImage(originalImage, 0, 0, newWidth, newHeight, null);
             graphics2D.dispose();
             ImageIO.write(resizedImage, "jpg", imageFile);
+            filesCompressed.incrementAndGet();
+            filesRemaining.decrementAndGet();
+            System.out.println("Compressed file " + filesCompressed.get() + " of " + (filesCompressed.get() + filesRemaining.get()) + ": " + imageFile.getAbsolutePath());
         } catch (IOException e) {
             System.err.println("Failed to compress image: " + imageFile.getAbsolutePath());
             e.printStackTrace();
         }
     }
-
 
 
     private static String getImageHash(File imageFile) throws IOException, NoSuchAlgorithmException {
@@ -141,7 +150,7 @@ public class Main {
             byte[] buffer = new byte[1024];
             int bytesRead;
             while ((bytesRead = fileInputStream.read(buffer)) != -1) {
-               // Update the message digest
+                // Update the message digest
                 messageDigest.update(buffer, 0, bytesRead);
             }
             byte[] digest = messageDigest.digest();
@@ -159,5 +168,3 @@ public class Main {
         }
     }
 }
-
-// copyright 2022 ~ Soumik Das
