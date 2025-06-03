@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b7700517-a6b1-4a23-8599-70482aa9f8d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/E-DIA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jenkinsSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1321259.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1322321 2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1332721.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1349195.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1349198.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1350469.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1350899.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/1357320 2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider10.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider11.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider12.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider13.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider14.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider15.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider5.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider6.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider7.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider8.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Radical Rider9.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/alisa-anton-u_z0X-yrJIE-unsplash.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/cozy-8306356.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/japan_street_by_pikswell_dfqh31r.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/japan_street_by_pikswell_dfqy5iq.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/lo-fi-8858510.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/lofi-8306352.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/wes-hicks-waxurl1qUyc-unsplash.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDIA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edia.c" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2xzJdXsxhN2iN9TGIAXMjbtvhGk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "app.teamhub.selectedTeam": "https://github.com/FalconEthics/E-DIA",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "22.14.0",
+    "javascript.nodejs.core.library.typings.version": "22.14.1",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/soumikdas/Projects/E-DIA",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7700517-a6b1-4a23-8599-70482aa9f8d4" name="Changes" comment="" />
+      <created>1707126008055</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707126008055</updated>
+      <workItem from="1707126009416" duration="886000" />
+      <workItem from="1707139912089" duration="58000" />
+      <workItem from="1748935060668" duration="1711000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>
