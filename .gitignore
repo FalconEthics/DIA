@@ -1,2 +1,26 @@
+# macOS
+.DS_Store
 
-.vscode/settings.json
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Compiled object files and binaries
+*.o
+dia
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Backup files
+*~
+
+# Misc
+
+# Ignore demo output (optional, remove if you want to keep all demo files)
+# demo/*.out
