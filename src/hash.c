@@ -1,10 +1,18 @@
+// hash.c: File hashing utilities for DIA.
+// Provides functions to compute MD5 or SHA256 hashes for file contents.
+
 #include "hash.h"
 #include <stdio.h>
 #include <openssl/md5.h>
 #include <openssl/sha.h>
 
-extern int useSHA256;
+extern int useSHA256; // Global flag for hash type
 
+// Computes the hash of a file (MD5 or SHA256).
+// filename: path to the file
+// digest: output buffer (must be at least 32 bytes)
+// useSHA256Flag: 1 for SHA256, 0 for MD5
+// Returns 1 on success, 0 on failure.
 int computeHash(const char *filename, unsigned char *digest, int useSHA256Flag) {
     FILE *file = fopen(filename, "rb");
     if (!file) return 0;

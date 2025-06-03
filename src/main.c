@@ -1,3 +1,7 @@
+// DIA - Duplicate Image Analyzer
+// main.c: Entry point and command-line interface for the duplicate image finder.
+// Handles argument parsing, setup, and program orchestration.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,21 +14,24 @@
 #include "log.h"
 #include "prompt.h"
 
-#define MAX_FILES 100000
+#define MAX_FILES 100000 // Maximum number of files to track in memory
 
+// Represents a file found during scanning
 struct FileEntry {
-    char *path;
-    off_t size;
-    unsigned char hash[32];
+    char *path;                // Full path to the file
+    off_t size;                // File size in bytes
+    unsigned char hash[32];    // MD5 or SHA256 hash of file contents
 };
 
+// Global state shared across modules
 struct FileEntry *fileList = NULL;
 int fileCount = 0;
-int useSHA256 = 0;
-int dryRun = 0;
-int interactive = 0;
-FILE *logFile = NULL;
+int useSHA256 = 0;     // 0 = MD5, 1 = SHA256
+int dryRun = 0;        // 1 = don't delete, just show
+int interactive = 0;   // 1 = prompt before delete
+FILE *logFile = NULL;  // Log file pointer (if logging enabled)
 
+// Prints usage instructions and options
 void printUsage(const char *prog) {
     printf("\nDIA - Duplicate Image Analyzer\n");
     printf("Usage: %s [-r] [--dry-run] [--log logfile] [--sha256] [--interactive] <directory>\n\n", prog);
@@ -38,12 +45,14 @@ void printUsage(const char *prog) {
 }
 
 int main(int argc, char *argv[]) {
-    int recursive = 0;
-    char *targetDir = NULL;
-    char *logFilename = NULL;
+    int recursive = 0;         // Whether to scan directories recursively
+    char *targetDir = NULL;    // Directory to scan
+    char *logFilename = NULL;  // Log file name (if any)
 
+    // Allocate memory for file entries
     fileList = malloc(sizeof(struct FileEntry) * MAX_FILES);
 
+    // Parse command-line arguments
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-r") == 0) {
             recursive = 1;
@@ -63,11 +72,13 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    // Must specify a directory to scan
     if (!targetDir) {
         printUsage(argv[0]);
         return 1;
     }
 
+    // Open log file if requested
     if (logFilename) {
         logFile = fopen(logFilename, "w");
         if (!logFile) {
@@ -77,9 +88,12 @@ int main(int argc, char *argv[]) {
     }
 
     printf("Scanning %s...\n", targetDir);
+    // Scan the directory and build the file list
     scan_directory(targetDir, recursive);
+    // Find and handle duplicates (delete or show)
     handle_duplicates(dryRun, interactive, useSHA256, logFile);
 
+    // Clean up memory
     for (int i = 0; i < fileCount; i++) {
         free(fileList[i].path);
     }
